@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+    front:
+        image: johnnynotsolucky/twitter-demo-client:latest
+        environment:
+            - APP_ENV=testing
+            - API_URL=http://localhost:8080
+        ports:
+            - "80:80"
+    server:
+        image: johnnynotsolucky/twitter-demo-server:latest
+        ports:
+            - "8080:8080"
