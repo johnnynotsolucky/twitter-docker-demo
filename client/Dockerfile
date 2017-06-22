@@ -18,5 +18,6 @@ RUN cp -a /usr/src/build/env.remote.js /usr/share/nginx/html/env.remote.js
 COPY ./build/nginx-start.sh /opt/bin/nginx-start.sh
 RUN chmod +x /opt/bin/nginx-start.sh
 
-WORKDIR /usr/share/nginx/html
+EXPOSE 80
+
 CMD /opt/bin/nginx-start.sh

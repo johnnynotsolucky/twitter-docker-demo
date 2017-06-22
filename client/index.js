@@ -20,7 +20,7 @@ const main = (sources) => {
     .compose(debounce(2000))
     .startWith({
       event: 'message',
-      data: 'tyronetudehope'
+      data: 'realdonaldtrump'
     })
 
   const message$ = sources.Socket.select('message')

@@ -3,12 +3,26 @@ version: '2'
 services:
     front:
         image: johnnynotsolucky/twitter-demo-client:latest
+        build:
+            context: ./client
+        command: "/usr/src/build/start-dev.sh"
         environment:
             - APP_ENV=testing
             - API_URL=http://localhost:8080
+        volumes:
+            - ./client/env.js:/usr/share/nginx/html/env.js
+            - ./client/dist:/usr/share/nginx/html
+            - ./client:/usr/src
         ports:
             - "80:80"
     server:
         image: johnnynotsolucky/twitter-demo-server:latest
+        build:
+            context: ./server
+        command: "/usr/src/app/build/watch.sh"
+        env_file:
+            - ./server/.env
+        volumes:
+            - ./server:/usr/src/app
         ports:
             - "8080:8080"

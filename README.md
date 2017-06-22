@@ -1,36 +1,23 @@
-### Server
+### Dev
+
+Create `server/.env` with the following content:
 
 ```
-$ cd /path/to/src/server
-$ npm run build:docker
-$ docker run -p 8080:8080 johnnynotsolucky/twitter-demo-server:latest
+CONSUMER_KEY=<twitter consumer key>
+CONSUMER_SECRET=<twitter consumer secret>
+ACCESS_TOKEN_KEY=<twitter access token>
+ACCESS_TOKEN_SECRET=<twitter access token secret>
 ```
 
-### Client
-
-#### Dev
+Run the following commands
 
 ```
-$ cd /path/to/src/client
-$ npm run build:docker
-$ docker run -d \
-    -p 80:80 \
-    -v /path/to/src/client/env.js:/usr/share/nginx/html/env.js \
-    -v /path/to/src/client/dist:/usr/share/nginx/html \
-    johnnynotsolucky/twitter-demo-client:latest
-# npm run watch
+docker-compose build
+docker-compose up
 ```
 
-#### "Production"
-```
-$ cd /path/to/src/client
-$ npm run build:docker
-$ docker run -d \
-    -p 80:80 \
-    -e APP_ENV=production \
-    -e API_URL=http://localhost:8080 \
-    johnnynotsolucky/twitter-demo-client:latest
-```
+Browse to [](http://localhost)
+
 
 ### Deploy
 
