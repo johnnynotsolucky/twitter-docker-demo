@@ -16,7 +16,7 @@ docker-compose build
 docker-compose up
 ```
 
-Browse to [](http://localhost)
+Browse to [http://localhost](http://localhost)
 
 
 ### Deploy
